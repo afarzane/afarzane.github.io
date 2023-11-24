@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>6-Axis Robotic Arm</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            <header id="header">
+                <h1 id="logo"><a href="index.html">Amirali Farzaneh</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#">Software</a>
+                            <ul>
+                                <li><a href="ethanol.html">Ethanol Chamber Pressure Control (C/C++)</a></li>
+                                <li><a href="SCARA.html">SCARA Control Software (C/C++)</a></li>
+                                <li><a href="COVID.html">COVID-19 Impacted Lungs CT Segmentation (MATLAB)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Hardware</a>
+                            <ul>
+                                <li><a href="kickpro.html">KickPro - Automated Soccer Trainer</a></li>
+                                <li><a href="robotarm.html">6-Axis Robotic Arm</a></li>
+                                <li><a href="gearbox.html">Planetary Gearbox</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="mailto:amiralifarzaneh26@gmail.com" class="button primary">Contact Me</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>6-Axis Robotic Arm</h2>
+							<p>My personal journey in deepening my understanding of robotics.</p>
+						</header>
+						<div class="row gtr-150">
+							<div class="col-8 col-12-medium">
+
+								<!-- Content -->
+									<section id="content">
+										<a href="#" class="image fit"><img src="images/robotic.jpg" alt="" /></a>
+										<h3>General Design</h3>
+                                        <p>The robotic arm features 6 revolute joints, with the base using a stepper motor and the other joints using servo motors controlled by a PCA9685 servo driver module. 
+                                        While a servo could have simplified the base, a stepper was chosen for learning purposes. Initial electronics development utilizes an Arduino Uno, transitioning to a Raspberry Pi 4 8GB for image processing due to increased processing power. 
+                                        The arm aims to handle tools weighing under 8 pounds (roughly 3.63 kg), and all mechanical parts are 3D printed with PLA, incorporating machine screws ranging from 3-5 mm.
+                                        </p>
+                                        <h3>3D Mechanical Design</h3>
+										<p>The project began with a prototype emphasizing minimal mechanical components to reduce costs. However, initial limitations in workspace and reach prompted a redesign, 
+                                        accommodating a gearbox for the base stepper motor. Overcoming 3D printer constraints (150x150x150mm), the second design involved breaking down link designs into printable pieces for assembly, 
+                                        addressing challenges encountered in the first iteration. The 6th joint, the gripper mechanism, initially designed as an AR4 gripper, is under revision due to torque transfer issues.
+                                        </p>
+
+                                        <div class="row" style="align-content: center; margin-bottom: 1rem;">
+                                            <div class="col-4" style="text-align: center;">
+                                                <img src="images/firstprototype.png" width="235" height="auto"/>
+                                                <h5>First Prototype</h5>
+                                            </div>
+                                            <div class="col-4" style="text-align: center;">
+                                                <img src="images/6axisrobot_1.png" width="220" height="auto"/>
+                                                <h5>Current Prototype</h5>
+                                            </div>
+                                            <div class="col-4" style="text-align: center;">
+                                                <img src="images/assembledarm_1.JPG" width="191" height="auto"/>
+                                                <h5>Assembled Prototype</h5>
+                                            </div>
+                                        </div>
+									</section>
+
+							</div>
+							<div class="col-4 col-12-medium">
+
+								<!-- Sidebar -->
+									<section id="sidebar">
+										<section>
+											<h3>Project Overview</h3>
+											<p>Embarking on a venture to deepen my understanding of robotics, I have undertaken the development of a 3D-printed robotic arm. The ultimate goal is to achieve full automation, 
+                                            enabling the arm to respond to vocal commands and adeptly handle tools. This ongoing project showcases my progress to date.
+                                            </p>
+										</section>
+										<hr />
+										<section>
+											<a href="gearbox.html" class="image fit"><img src="images/gears.png" alt="" /></a>
+											<h3>Planetary Gearbox</h3>
+											<p>The robotic arm incorporates a meticulously designed "Planetary Gearbox," crafted using Fusion 360. Comprising planet, sun, and ring gears, 
+                                            this gearbox enhances the motor's output torque by a factor of 5. This augmentation empowers more robust rotations, particularly at the crucial base joint of the robot arm.
+                                            </p>
+											<footer>
+												<ul class="actions">
+													<li><a href="gearbox.html" class="button">Learn More</a></li>
+												</ul>
+											</footer>
+										</section>
+									</section>
+
+							</div>
+						</div>
+                        <h3>Microcontroller Overvoltage Protection</h3>
+                        <p>Given the external power supply, a protection circuit safeguards against voltage spikes from unforeseen situations such as a power outage. 
+                        Utilizing 2 BC557 Bipolar Junction Transistors (BJTs), a 50K potentiometer, and passive components, an adjustable voltage supervisor was developed. 
+                        The circuit turns off power if the supplied voltage exceeds a set threshold, incorporating a positive feedback hysteresis loop for stability. In the following circuit, 
+                        we use a simple LED as the output load.
+                        </p>
+                        <div class="row" style="align-content: center; margin-bottom: 1rem;">
+                            <div class="col-6" style="text-align: center;">
+                                <img src="images/overvoltageschematic.JPG" width="435" height="auto"/>
+                                <h4>Circuit Schematics</h4>
+                            </div>
+                            <div class="col-6" style="text-align: center;">
+                                <video src="/videos/overvoltagedemo.mp4" width="520" height="auto" controls muted></video>
+                                <h4>Video Demonstration</h4>
+                            </div>
+                        </div>
+                        <h3>Current and Future Plans</h3>
+                        <p>The project is in the calibration phase, starting with the stepper motor gearbox and progressing to the servo motors. Implementing a feedback system, 
+                        the project addresses the absence of feedback in servo motors by soldering wires to the built-in potentiometers for analog position reads. 
+                        These analog wires connect to the Arduino Uno's analog pins and will later interface with the Raspberry Pi through an MCP3008 ADC chip.
+                        </p>
+                        <p>The video below showcases the latest progress of our product. With the gearbox installed and all components successfully printed, 
+                            we achieved control over the arm's base rotation in any required direction. 
+                            This demonstration highlights the utilization of an Arduino Uno and DRV8825, powered by a 12V DC power supply. We note the wobbling of the arm after each 
+                            stop, which can be improved with changes to the shoulder joint connecting the first link to the base.
+                        </p>
+                        <div class="col-6" style="text-align: center;">
+                            <video src="/videos/armrotating.mp4" width="820" height="auto" controls muted></video>
+                            <h4>Robot Arm in Motion!</h4>
+                        </div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.linkedin.com/in/afarzane/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/afarzane" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="mailto:amiralifarzaneh26@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Amirali Farzaneh. All rights reserved.</li>
+                </ul>
+            </footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

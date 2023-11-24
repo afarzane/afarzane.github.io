@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ethanol Chamber Pressure Control (C/C++)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            <header id="header">
+                <h1 id="logo"><a href="index.html">Amirali Farzaneh</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#">Software</a>
+                            <ul>
+                                <li><a href="ethanol.html">Ethanol Chamber Pressure Control (C/C++)</a></li>
+                                <li><a href="SCARA.html">SCARA Control Software (C/C++)</a></li>
+                                <li><a href="COVID.html">COVID-19 Impacted Lungs CT Segmentation (MATLAB)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Hardware</a>
+                            <ul>
+                                <li><a href="kickpro.html">KickPro - Automated Soccer Trainer</a></li>
+                                <li><a href="robotarm.html">6-Axis Robotic Arm</a></li>
+                                <li><a href="gearbox.html">Planetary Gearbox</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="mailto:amiralifarzaneh26@gmail.com" class="button primary">Contact Me</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Ethanol Chamber Pressure Control (C/C++)</h2>
+							<p>An embedded C/C++ feedback system to control chamber pressures before a hotfire.</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src="images/LRE.png" alt="" /></a>
+								<h3>SFU Rocketry - Liquid Rocket Engine</h3>
+								<p>The hotfire testing of a Liquid Rocket Engine is its physical activation to measure how powerful the engine is and how each individual system functions. During hotfire testing, the engine is required to have the proper amount of Ethanol, Liquid Oxygen, and Nitrogen in its chambers before firing. Each compound is pressurized within its own chamber before being mixed together at the right time to fire. However, due to unavoidable leakage or delays in actuation, the chamber may be under or over the target pressure (400 PSI) required to fire the engine properly.
+                                </p>
+								<p>To tackle this problem, alongside the software team, I developed a solution which involves a closed-loop control system in C/C++ to actively read chamber pressures and react accordingly to the measurements. Utilizing shared memory management, a Raspberry Pi 4, and pressure sensors, the algorithm continuously checks the pressure in the Ethanol chamber, and if it is within a specified threshold, it controls the solenoid valves (SOVs) responsible for injecting or venting ethanol within the chamber. The video below demonstrates the pressurization of the Ethanol tank, which can be read through the algorithm's output in the command prompt window or on the newly developed LabVIEW GUI.</p>
+                                    <section style="margin-bottom: 60px; text-align: center">
+                                        <video src="/videos/pressurizingethanol.mp4" width="420" height="320" controls></video>
+                                    </section>
+                                <h3>Future Plans</h3>
+								<p>Due to the code's multi-functional ability, it can be implemented on any pressurized tank with potential leaks. For example, the code has been implemented for the Liquid Oxygen tank in a similar manner. However, each code is required to run separately for each tank, which is counterintuitive. To fix this issue, I plan to develop a multi-threaded algorithm that is capable of running each script concurrently with only one press of a button.
+                                </p>
+								<h3>Code Snippet</h3>
+                                <pre><code>
+while (true) { // Run this code until you wish to stop process with Ctrl + C
+
+    currPress = shared_mem->PT_states[PT1]; // Check current pressure of chamber through sensors
+
+    if (!pressurized) { // When chamber is not pressurized....
+        if (currPress >= targetPress) { // Check to see if chamber is pressurized
+            if (shared_mem->currentStates[ethValve] == 1) { // Check current state of ethanol chamber's valve and see if open (=1)
+                cout << "Pressure stabilized. ";
+                latch(SOV1, 0); // Close Ethanol valve
+                // ethanolValveOpen = false;
+            }
+            if (shared_mem->currentStates[ethVent] == 1) { // Check current state of ethanol chamber's vent and see if open (=1)
+                cout << "Pressure stabilized. ";
+                latch(SOV3, 0); // Close vent
+                // ventOpen = false;
+            }
+            pressurized = true; // Continue with feedback check in the next if statement
+            printCount = true;
+        }
+    } else {
+        if (currPress < targetPress - threshold) { // Check if pressure is lower than target pressure
+            cout << "Pressure too low... Releasing Ethanol. ";
+            if (shared_mem->currentStates[ethValve] == 0) {
+                latch(SOV1, 1); // Open Ethanol valves to pressurize
+                // ethanolValveOpen = true;
+            }
+            if (shared_mem->currentStates[ethVent] == 1) {
+                cout << "Pressure stabilized. ";
+                latch(SOV3, 0); // Close vent
+                // ventOpen = false;
+            }
+            pressurized = false;
+            printCount = false;
+
+        } else if (currPress > targetPress + threshold) {
+            cout << "Pressure too high... Opening vents to decrease pressure. ";
+            if (shared_mem->currentStates[ethValve] == 1) {
+                cout << "Pressure stabilized. ";
+                latch(SOV1, 0); // Close Ethanol valve
+                // ethanolValveOpen = false;
+            }
+            if (shared_mem->currentStates[ethVent] == 0) {
+                latch(SOV3, 1); // Vent opening to release pressure
+                // ventOpen = true;
+            }
+        } else {
+            cout << "Pressure stabilized. ";
+            if (shared_mem->currentStates[ethValve] == 1) {
+                latch(SOV1, 0); // Close Ethanol valve
+                // ethanolValveOpen = false;
+            }
+            if (shared_mem->currentStates[ethVent] == 1) {
+                latch(SOV3, 0); // Close vent
+                // ventOpen = false;
+            }
+            pressurized = true;
+        }
+    }
+    
+    if(!printCount){cout << "Current pressure: " << currPress << endl;}	// Print out the current pressure
+    usleep(25000);
+}
+                                </code></pre>
+
+                                <div class="row">
+									<div class="col-3 col-6-medium col-12-xsmall">
+										<ul class="actions stacked">
+											<li><a href="https://github.com/afarzane/Ethanol-Pressure-Control" class="button primary">Full Source Code</a></li>
+										</ul>
+									</div>
+                                </div>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.linkedin.com/in/afarzane/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/afarzane" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="mailto:amiralifarzaneh26@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Amirali Farzaneh. All rights reserved.</li>
+                </ul>
+            </footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SCARA Control Software (C/C++)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            <header id="header">
+                <h1 id="logo"><a href="index.html">Amirali Farzaneh</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#">Software</a>
+                            <ul>
+                                <li><a href="ethanol.html">Ethanol Chamber Pressure Control (C/C++)</a></li>
+                                <li><a href="SCARA.html">SCARA Control Software (C/C++)</a></li>
+                                <li><a href="COVID.html">COVID-19 Impacted Lungs CT Segmentation (MATLAB)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Hardware</a>
+                            <ul>
+                                <li><a href="kickpro.html">KickPro - Automated Soccer Trainer</a></li>
+                                <li><a href="robotarm.html">6-Axis Robotic Arm</a></li>
+                                <li><a href="gearbox.html">Planetary Gearbox</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="mailto:amiralifarzaneh26@gmail.com" class="button primary">Contact Me</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>SCARA Control Software (C/C++)</h2>
+							<p>A C/C++ algorithm to control a Schunk SCARA robotic arm.</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src="images/scara.PNG" alt="" /></a>
+								<h3>SCARA Robot Arm</h3>
+								<p>
+                                    The SCARA (Selective Compliance Articulated Robot Arm) stands out as a highly versatile robotic arm, tailored for swift operations in manufacturing and automation. 
+                                    Boasting 4 degrees of freedom and movement capabilities in the X, Y, and Z directions, it is categorized as an RRPR (Revolute-Revolute-Prismatic-Revolute) robot. 
+                                    In a collaborative project, our team spearheaded the development of a C/C++ algorithm to command a Schunk SCARA arm. This encompassed the implementation of forward kinematics, 
+                                    inverse kinematics, and a trajectory planner, leveraging robotics mathematics, the PowerCubeSim Robot Operating System (ROS) package, and Visual Studio.
+                                </p>
+                                <h3>The Process of Developing the Algorithm</h3>
+								<div class="row" style="align-content: center;">
+                                    <div class="col-8">
+                                        <p>
+                                            Our journey commenced with a meticulous analysis of the SCARA robot's physical attributes. By delineating joint frames and link lengths on a schematic, we crafted a D-H table for 
+                                            computational purposes. This groundwork facilitated the creation of a transformation matrix concerning the robot's station frame, crucial for the forward kinematics algorithm. 
+                                            Subsequent calculations using robotics mathematics culminated in the formulation of the inverse kinematics and trajectory planning algorithm.
+                                        </p>
+                                        <p>
+                                            With the theoretical groundwork completed, we transitioned to the practical phase, developing our algorithm in C/C++ and testing our code using the PowerCubeSim model's 
+                                            simulation package. This simulation served a dual purpose: validating the precision of our code and pinpointing any discrepancies resulting from vector computations. 
+                                            Moreover, the simulation package played a crucial role in defining joint limits and the workspace of our SCARA arm, providing a clear understanding of its capabilities during 
+                                            the coding phase. The testing phase preceded the installation of the system onto the physical arm. 
+                                            The accompanying videos showcase the simulation process (left) and the algorithm's control over the physical robot arm (right).
+                                        </p>
+                                    </div>
+                                    <div class="col-4" style="text-align: right;">
+                                        <img src="images/scaraschematic.png" width="270" height="auto"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="row" style="align-content: center;">
+                                    <div class="col-6">
+                                        <section style="margin-bottom: 60px; text-align: center">
+                                            <video src="/videos/scarasim.mkv" width="420" height="320" controls muted></video>
+                                        </section>
+                                    </div>
+                                    <div class="col-6">
+                                        <section style="margin-bottom: 60px; text-align: center">
+                                            <video src="/videos/scarareal.mp4" width="420" height="320" controls muted></video>
+                                        </section>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+									<div class="col-3 col-6-medium col-12-xsmall">
+										<ul class="actions stacked">
+											<li><a href="https://github.com/afarzane/SCARA_Motion" class="button primary">Full Source Code</a></li>
+										</ul>
+									</div>
+                                </div>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.linkedin.com/in/afarzane/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/afarzane" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="mailto:amiralifarzaneh26@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Amirali Farzaneh. All rights reserved.</li>
+                </ul>
+            </footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

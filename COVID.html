@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>COVID-19 Impacted Lungs CT Segmentation (MATLAB)</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            <header id="header">
+                <h1 id="logo"><a href="index.html">Amirali Farzaneh</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#">Software</a>
+                            <ul>
+                                <li><a href="ethanol.html">Ethanol Chamber Pressure Control (C/C++)</a></li>
+                                <li><a href="SCARA.html">SCARA Control Software (C/C++)</a></li>
+                                <li><a href="COVID.html">COVID-19 Impacted Lungs CT Segmentation (MATLAB)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Hardware</a>
+                            <ul>
+                                <li><a href="kickpro.html">KickPro - Automated Soccer Trainer</a></li>
+                                <li><a href="robotarm.html">6-Axis Robotic Arm</a></li>
+                                <li><a href="gearbox.html">Planetary Gearbox</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="mailto:amiralifarzaneh26@gmail.com" class="button primary">Contact Me</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Segmentation of COVID-19 Impacted Lungs</h2>
+							<p>A MATLAB based algorithm to identify and segment COVID-19 features in CT scans.</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src="images/covid.png" alt="" /></a>
+								<h3>Ground-glass Feature</h3>
+								<p>
+                                    Ground-glass opacities (GGOs) appear as light gray patches on thoracic CT images, often associated with COVID-19 infections. 
+                                    These patches can indicate lung damage or conditions like pneumonia. 
+                                    Developing a computer vision algorithm to visualize and quantify the extent of GGOs helps clinicians assess disease severity.
+                                </p>
+                                <h3>Segmentation in MATLAB</h3>
+								<div class="row" style="align-content: center;">
+                                    <div class="col-6">
+                                        <p>
+                                        In our approach to assist clinicians in identifying GGOs, we employ image segmentation techniques, such as the "fuzzy k-means" clustering algorithm. 
+                                        Fuzzy k-means is an advanced clustering algorithm that categorizes data points into specific groups. Unlike traditional K-means, it allows for partial memberships, 
+                                        accommodating uncertainties. Each cluster is represented by a centroid, and data points contribute with varying degrees of "fuzzy" membership.
+                                        </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="images/Patient2seg.jpg" width="220" height="auto" style="text-align: right;"/>
+                                        <img src="images/Patient2og.jpg" width="220" height="auto" style="text-align: left;"/>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-content: center;">
+                                    <div class="col-6">
+                                        <p>
+                                            We apply the algorithm to cluster pixel intensities in a CT image. For example, we define intensity ranges representing background/lung tissue, GGO, and body/blood vessels. 
+                                            This allows for partial membership, accommodating pixels with mixed characteristics. The segmented image highlights GGO features.
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="images/Patient3seg.jpg" width="220" height="auto" style="text-align: right;"/>
+                                        <img src="images/Patient003.jpg" width="220" height="auto" style="text-align: left;"/>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="align-content: center;">
+                                    <div class="col-6">
+                                        <p>
+                                            While our method effectively identifies GGOs, minor errors may occur due to improper pixel range definitions or varying brightness in CT scans. 
+                                            Future work involves exploring additional image processing techniques to address these challenges.
+                                        </p>
+                                        <ul class="actions stacked" style="margin-top: 40px;">
+											<li><a href="https://github.com/afarzane/COVID-19-Segmentation" class="button primary">Full Source Code</a></li>
+										</ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="images/Patient4seg.jpg" width="220" height="auto" style="text-align: right;"/>
+                                        <img src="images/Patient004.jpg" width="220" height="auto" style="text-align: left;"/>
+                                    </div>
+                                </div>
+							</section>
+
+					</div>
+				</div>
+                
+			<!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.linkedin.com/in/afarzane/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/afarzane" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="mailto:amiralifarzaneh26@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Amirali Farzaneh. All rights reserved.</li>
+                </ul>
+            </footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

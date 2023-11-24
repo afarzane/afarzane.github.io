@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Planetary Gearbox</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+            <header id="header">
+                <h1 id="logo"><a href="index.html">Amirali Farzaneh</a></h1>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#">Software</a>
+                            <ul>
+                                <li><a href="ethanol.html">Ethanol Chamber Pressure Control (C/C++)</a></li>
+                                <li><a href="SCARA.html">SCARA Control Software (C/C++)</a></li>
+                                <li><a href="COVID.html">COVID-19 Impacted Lungs CT Segmentation (MATLAB)</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Hardware</a>
+                            <ul>
+                                <li><a href="kickpro.html">KickPro - Automated Soccer Trainer</a></li>
+                                <li><a href="robotarm.html">6-Axis Robotic Arm</a></li>
+                                <li><a href="gearbox.html">Planetary Gearbox</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="mailto:amiralifarzaneh26@gmail.com" class="button primary">Contact Me</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Planetary Gearbox</h2>
+							<p>Mechanical design of a planetary gearbox for the Nema 17.</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src="images/gears.png" alt="" /></a>
+								<h3>Robotic Arm Project</h3>
+								<p>
+                                    Developed a planetary gearbox for a 6-axis robotic arm with a base joint actuated by a Nema 17 stepper motor. Calculations 
+                                    revealed that the motor alone lacked sufficient torque (0.41 N*m) to rotate the base. Addressed this limitation by implementing a 5:1 planetary gearbox for increased torque.
+                                </p>
+
+                                <h3>Planetary Gearbox</h3>
+                                <p>
+                                    Designed a 3D CAD model using Fusion 360 for the planetary gearbox, featuring a ring gear embedded in the housing, three planet gears with 22 mm bearings, 
+                                    and a sun gear directly connected to the stepper motor's shaft. Achieved an output torque of approximately 2 N*m, exceeding project requirements. Video below shows the assembly 
+                                    of design.
+                                </p>
+
+                                <section style="margin-bottom: 60px; text-align: center">
+                                    <video src="/videos/GearboxAssembly.mp4" width="auto" height="520" controls muted></video>
+                                </section>
+
+                                <h3>3D Printing Components</h3>
+                                <p>
+                                    Addressed 3D printer error margins affecting gear accuracy by adding a tolerance value to planet gears. Despite the looser fit affecting gearbox performance, 
+                                    it was necessary due to equipment limitations (accuracy of 3D printer.)
+                                    The video demonstrates the gearbox's output shaft turning, powered by a DRV8825 driver module with a 12V, 1.6 A DC power supply.
+                                </p>
+
+                                <section style="margin-bottom: 60px; text-align: center">
+                                    <video src="/videos/planetary.MOV" width="auto" height="520" controls muted></video>
+                                </section>
+							</section>
+
+					</div>
+				</div>
+                
+			<!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.linkedin.com/in/afarzane/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://github.com/afarzane" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="mailto:amiralifarzaneh26@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Amirali Farzaneh. All rights reserved.</li>
+                </ul>
+            </footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
