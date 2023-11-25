@@ -25,15 +25,15 @@
                         <li>
                             <a href="#">Software</a>
                             <ul>
-                                <li><a href="ethanol.html">Ethanol Chamber Pressure Control (C/C++)</a></li>
-                                <li><a href="SCARA.html">SCARA Control Software (C/C++)</a></li>
-                                <li><a href="COVID.html">COVID-19 Impacted Lungs CT Segmentation (MATLAB)</a></li>
+                                <li><a href="ethanol.html">Ethanol Pressure Control</a></li>
+                                <li><a href="SCARA.html">SCARA Control Software</a></li>
+                                <li><a href="COVID.html">COVID-19 CT Segmentation</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">Hardware</a>
                             <ul>
-                                <li><a href="kickpro.html">KickPro - Automated Soccer Trainer</a></li>
+                                <li><a href="kickpro.html">Automated Soccer Trainer</a></li>
                                 <li><a href="robotarm.html">6-Axis Robotic Arm</a></li>
                                 <li><a href="gearbox.html">Planetary Gearbox</a></li>
                             </ul>
@@ -58,14 +58,14 @@
 								<p>The hotfire testing of a Liquid Rocket Engine is its physical activation to measure how powerful the engine is and how each individual system functions. During hotfire testing, the engine is required to have the proper amount of Ethanol, Liquid Oxygen, and Nitrogen in its chambers before firing. Each compound is pressurized within its own chamber before being mixed together at the right time to fire. However, due to unavoidable leakage or delays in actuation, the chamber may be under or over the target pressure (400 PSI) required to fire the engine properly.
                                 </p>
 								<p>To tackle this problem, alongside the software team, I developed a solution which involves a closed-loop control system in C/C++ to actively read chamber pressures and react accordingly to the measurements. Utilizing shared memory management, a Raspberry Pi 4, and pressure sensors, the algorithm continuously checks the pressure in the Ethanol chamber, and if it is within a specified threshold, it controls the solenoid valves (SOVs) responsible for injecting or venting ethanol within the chamber. The video below demonstrates the pressurization of the Ethanol tank, which can be read through the algorithm's output in the command prompt window or on the newly developed LabVIEW GUI.</p>
-                                    <section style="margin-bottom: 60px; text-align: center">
-                                        <video src="/videos/pressurizingethanol.mp4" width="420" height="320" controls></video>
+                                    <section style="margin-bottom: 60px; text-align: center;">
+                                        <video src="/videos/pressurizingethanol.mp4" width="100%" height="auto" controls></video>
                                     </section>
                                 <h3>Future Plans</h3>
 								<p>Due to the code's multi-functional ability, it can be implemented on any pressurized tank with potential leaks. For example, the code has been implemented for the Liquid Oxygen tank in a similar manner. However, each code is required to run separately for each tank, which is counterintuitive. To fix this issue, I plan to develop a multi-threaded algorithm that is capable of running each script concurrently with only one press of a button.
                                 </p>
 								<h3>Code Snippet</h3>
-                                <pre><code>
+                                <pre class="container"><code>
 while (true) { // Run this code until you wish to stop process with Ctrl + C
 
     currPress = shared_mem->PT_states[PT1]; // Check current pressure of chamber through sensors

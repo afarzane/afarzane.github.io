@@ -4117,7 +4117,6 @@ input, select, textarea {
 
 	}
 
-	/* My code */
 	.icon-centered{
 		width: 30px;
 		height: auto;
@@ -4131,3 +4130,54 @@ input, select, textarea {
 		vertical-align: middle;
 	}
 	
+	/* Create two equal columns that floats next to each other */
+	.column_60 {
+		float: left;
+		width: 60%;
+	}
+
+	.column_40 {
+	text-align: right;
+	float: right;
+	width: 40%;
+	}
+
+	.column_50 {
+		float: left;
+		width: 50%;
+	}
+
+	.column_33 {
+		float: left;
+		width: 33.3333%;
+	}
+
+	.myrow:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	/* Responsive layout */
+	@media screen and (max-width: 980px) {
+		.column_60 {
+		width: 100%;
+		float: none;
+		}
+
+		.column_40 {
+			text-align: center;
+			width: 100%;
+			float: none;
+		}
+
+		.column_50{
+			width: 100%;
+		}
+
+		.column_33 {
+			float: none;
+			width: 100%;
+		}
+	}
+
