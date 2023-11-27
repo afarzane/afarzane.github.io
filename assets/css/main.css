@@ -4208,6 +4208,26 @@ input, select, textarea {
 		margin: 0px;
 	}
 
+	header.minor {
+		margin: 0 0 4em 0;
+		position: relative;
+		text-align: center;
+	}
+
+		header.minor:after {
+			background: rgba(255, 255, 255, 0.3);
+			content: '';
+			display: inline-block;
+			height: 0.2em;
+			max-width: 60em;
+			width: 75%;
+		}
+
+	.summary{
+		text-align: left; 
+		padding-left: 90px;
+	}
+
 	/* Responsive layout */
 	@media screen and (max-width: 980px) {
 		.column_60 {
@@ -4230,5 +4250,8 @@ input, select, textarea {
 			width: 100%;
 		}
 		
+		.summary{
+			padding-left: 20px;
+		}
 	}
 

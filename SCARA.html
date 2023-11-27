@@ -54,7 +54,23 @@
 						<!-- Content -->
 							<section id="content">
 								<a href="#" class="image fit"><img src="images/scara.PNG" alt="" /></a>
-								<h3>SCARA Robot Arm</h3>
+								<header class="minor">
+                                    <h2>Summary</h2>
+                                    <div class="summary">
+                                        <li>Developed a mathematical model of a SCARA robotic arm to formulate forward/inverse kinematic algorithms in C/C++.</li>
+                                        <li>Implemented a trajectory planner utilizing a cubic spline algorithm to optimize joint velocities and accelerations, enhancing overall motion smoothness.</li>
+                                        <li>Leveraged the system clock to implement a real-time algorithm, enabling precise timing and synchronization of the physical robot.</li>
+                                        <li>Verified algorithmic functionality through extensive simulated testing, ensuring error-free code deployment on the robotic arm.</li>
+                                        <p> </p>
+                                        <p>Skills: 
+                                            <img src="images/C++.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/git.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/github.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/vs.png" class="icon-centered" style="margin: 5px">
+                                        </p>
+                                    </div>
+                                </header>
+                                <h3>SCARA Robot Arm</h3>
 								<p>
                                     The SCARA (Selective Compliance Articulated Robot Arm) stands out as a highly versatile robotic arm, tailored for swift operations in manufacturing and automation. 
                                     Boasting 4 degrees of freedom and movement capabilities in the X, Y, and Z directions, it is categorized as an RRPR (Revolute-Revolute-Prismatic-Revolute) robot. 
@@ -65,9 +81,9 @@
 								<div class="row" style="align-content: center; padding-bottom: 20x;">
                                     <div class="column_60">
                                         <p>
-                                            Our journey commenced with a meticulous analysis of the SCARA robot's physical attributes. By delineating joint frames and link lengths on a schematic, we crafted a D-H table for 
+                                            Our journey commenced with the analysis of the SCARA robot's physical attributes. By delineating joint frames and link lengths on a schematic, we crafted a D-H table for 
                                             computational purposes. This groundwork facilitated the creation of a transformation matrix concerning the robot's station frame, crucial for the forward kinematics algorithm. 
-                                            Subsequent calculations using robotics mathematics culminated in the formulation of the inverse kinematics and trajectory planning algorithm.
+                                            Subsequent calculations using robotics mathematics culminated in the formulation of the inverse kinematics and a cubic slpine trajectory planner.
                                         </p>
                                         <p>
                                             With the theoretical groundwork completed, we transitioned to the practical phase, developing our algorithm in C/C++ and testing our code using the PowerCubeSim model's 

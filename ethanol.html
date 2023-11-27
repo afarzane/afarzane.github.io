@@ -45,6 +45,7 @@
 
 			<!-- Main -->
 				<div id="main" class="wrapper style1">
+
 					<div class="container">
 						<header class="major">
 							<h2>Ethanol Chamber Pressure Control (C/C++)</h2>
@@ -54,10 +55,33 @@
 						<!-- Content -->
 							<section id="content">
 								<a href="#" class="image fit"><img src="images/LRE.png" alt="" /></a>
+                                 <header class="minor">
+                                    <h2>Summary</h2>
+                                    <div class="summary">
+                                        <li>Developed a real-time closed-loop control system in C/C++ to maintain chamber pressures in case of leaks.</li>
+                                        <li>Utilized shared memory techniques on the Raspberry Pi to facilitated real-time reception and processing of data from pressure sensors.</li>
+                                        <li>Implemented an emergency safety interrupt using the "csignal" library, improving crisis management of algorithm.</li>
+                                        <li>Tested algorithm during a hotfire in October 2023, demonstrating its ability to pressurize and maintain Ethonal/Liquid Oxygen chambers.</li>
+                                        <p> </p>
+                                        <p>Skills: 
+                                            <img src="images/C++.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/raspberry.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/git.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/github.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/vsc.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/spi.png" class="icon-centered" style="margin: 5px">
+                                            <img src="images/i2c.svg" class="icon-centered" style="margin: 5px">
+                                        </p>
+                                    </div>
+                                </header>
+
 								<h3>SFU Rocketry - Liquid Rocket Engine</h3>
 								<p>The hotfire testing of a Liquid Rocket Engine is its physical activation to measure how powerful the engine is and how each individual system functions. During hotfire testing, the engine is required to have the proper amount of Ethanol, Liquid Oxygen, and Nitrogen in its chambers before firing. Each compound is pressurized within its own chamber before being mixed together at the right time to fire. However, due to unavoidable leakage or delays in actuation, the chamber may be under or over the target pressure (400 PSI) required to fire the engine properly.
                                 </p>
-								<p>To tackle this problem, alongside the software team, I developed a solution which involves a closed-loop control system in C/C++ to actively read chamber pressures and react accordingly to the measurements. Utilizing shared memory management, a Raspberry Pi 4, and pressure sensors, the algorithm continuously checks the pressure in the Ethanol chamber, and if it is within a specified threshold, it controls the solenoid valves (SOVs) responsible for injecting or venting ethanol within the chamber. The video below demonstrates the pressurization of the Ethanol tank, which can be read through the algorithm's output in the command prompt window or on the newly developed LabVIEW GUI.</p>
+								<p>To tackle this problem, alongside the software team, I developed a solution which involves a closed-loop control system in C/C++ to actively read chamber pressures and react accordingly to the measurements. Utilizing shared memory management, a Raspberry Pi 4, 
+                                    and pressure sensors, the algorithm continuously checks the pressure in the Ethanol chamber, and if it is within a specified threshold, it controls the solenoid valves (SOVs) responsible 
+                                    for injecting or venting ethanol within the chamber. Moreover, a safety method using the "csignal" library was put into place to implement an emergency stop. 
+                                    The video below demonstrates the pressurization of the Ethanol tank, which can be read through the algorithm's output in the command prompt window or on the newly developed LabVIEW GUI. </p>
                                     <section style="margin-bottom: 60px; text-align: center;">
                                         <video src="/videos/pressurizingethanol.mp4" width="100%" height="auto" controls></video>
                                     </section>
