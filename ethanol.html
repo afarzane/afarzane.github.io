@@ -81,10 +81,10 @@
 								<p>To tackle this problem, alongside the software team, I developed a solution which involves a closed-loop control system in C/C++ to actively read chamber pressures and react accordingly to the measurements. Utilizing shared memory management, a Raspberry Pi 4, 
                                     and pressure sensors, the algorithm continuously checks the pressure in the Ethanol chamber, and if it is within a specified threshold, it controls the solenoid valves (SOVs) responsible 
                                     for injecting or venting ethanol within the chamber. Moreover, a safety method using the "csignal" library was put into place to implement an emergency stop. 
-                                    The video below demonstrates the pressurization of the Ethanol tank, which can be read through the algorithm's output in the command prompt window or on the newly developed LabVIEW GUI. </p>
-                                    <section style="margin-bottom: 60px; text-align: center;">
+                                </p>
+                                    <!-- <section style="margin-bottom: 60px; text-align: center;">
                                         <video src="/videos/pressurizingethanol.mp4" width="100%" height="auto" controls></video>
-                                    </section>
+                                    </section> -->
                                 <h3>Future Plans</h3>
 								<p>Due to the code's multi-functional ability, it can be implemented on any pressurized tank with potential leaks. For example, the code has been implemented for the Liquid Oxygen tank in a similar manner. However, each code is required to run separately for each tank, which is counterintuitive. To fix this issue, I plan to develop a multi-threaded algorithm that is capable of running each script concurrently with only one press of a button.
                                 </p>
